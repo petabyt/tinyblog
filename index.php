@@ -33,7 +33,10 @@
 	</div>
 	<?php
 		$specificPost = $_GET["post"];
-		$postCount = 24;
+
+		# Automatically count files in /posts
+		$postsDirectory = scandir("posts");
+		$postCount = count($postsDirectory) - 2;
 
 		# Show specific post or all
 		if (!isset($specificPost)) {
