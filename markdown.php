@@ -12,7 +12,7 @@ function parse($string, $showRest, $post) {
 
 	# Parse images first, since they require a ! in front of them
 	$imageRegex = "/\!\[" . $findBetween . "\]\(" . $findBetween . "\)/i";
-	$asHtml = preg_replace($imageRegex, "<img src='$2' title='$1'>", $asHtml);
+	$asHtml = preg_replace($imageRegex, "<img src='$2' alt='$1' title='$1'>", $asHtml);
 
 	# Parse links, Prevent ! at beginning
 	$linkRegex = "/(?!\!)\[" . $findBetween . "\]\(" . $findBetween . "\)/i";
