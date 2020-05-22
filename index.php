@@ -1,8 +1,9 @@
-<?php require "markdown.php"; ?>
+<?php require __DIR__ . "/config.php"; ?>
+<?php require __DIR__ . "/markdown.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Blog</title>
+	<title><?php echo BLOG_NAME; ?></title>
 	<style>
 		body, html {
 			background: lightgrey;
@@ -28,8 +29,8 @@
 </head>
 <body>
 	<div class="header">
-		<h1>My Blog</h1>
-		<h3>Cool things go here.</h3>
+		<h1><?php echo BLOG_NAME; ?></h1>
+		<h3><?php echo BLOG_TAGLINE; ?></h3>
 	</div>
 	<?php
 		$specificPost = $_GET["post"];
