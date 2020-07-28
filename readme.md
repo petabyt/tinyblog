@@ -11,3 +11,4 @@ dig through the source code.
 
 ## TODO:
 Write a non-PHP implementation in Go (I'm not motivated to do this at the moment)
+Create newpost.sh (create new post) and editpost.sh (edit last post)
