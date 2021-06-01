@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # This is an easy setup file.
-cp config.default.php config.php
 
 mkdir posts
 mkdir media
 
 cd posts
-touch 1 2 3 4 5
+echo "Welcome to post 1" > 1
+echo "Welcome to post 2" > 2
 cd ..
