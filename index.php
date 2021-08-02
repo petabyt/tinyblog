@@ -7,6 +7,7 @@
 			background: lightgrey;
 			margin: auto;
 			width: 70%;
+			font-family: sans-serif;
 		}
 
 		.post {
@@ -55,7 +56,6 @@
 		
 		function parse($string, $showRest, $post) {
 			$asHtml = $string;
-
 			$asHtml = htmlspecialchars($asHtml);
 
 			# Replace "# " with h1
@@ -76,9 +76,13 @@
 			$asHtml = preg_replace("/```([^```]+)```/s", "<code>$1</code>", $asHtml);
 			$asHtml = preg_replace("/\`([^\n]+)\`/i", "<code>$1</code>", $asHtml);
 
-			# Replace bold, then italics
+			# Replace bold, then italics (don't replace \*)
 			$asHtml = preg_replace("/\*\*([^\n]+)\*\*/i", "<b>$1</b>", $asHtml);
-			$asHtml = preg_replace("/\*([^\n]+)\*/i", "<i>$1</i>", $asHtml);
+			$asHtml = preg_replace("/\*[^\\\\]([^\n]+)[^\\\\]\*/i", "<i>$1</i>", $asHtml);
+			
+			# Replace \* with *
+			# Optional, may break C/C++ code.
+			#$asHtml = preg_replace("/(\\\\\*)/i", "*", $asHtml);
 
 			# Replace --- with mothing and add "back" link or add "read more" if chosen.
 			if ($showRest == TRUE) {
