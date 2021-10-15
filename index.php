@@ -32,19 +32,17 @@
 		<h3>This is where my stuff goes.</h3>
 	</div>
 	<?php
-		$specificPost = $_GET["post"];
-
 		# Automatically count files in /posts
 		$postsDirectory = scandir("posts");
 		$postCount = count($postsDirectory) - 2;
 
 		# Show specific post or all
-		if (!isset($specificPost)) {
+		if (!isset($_GET["post"])) {
 			for ($post = $postCount; $post >= 1; $post--) {
 				makePost($post, FALSE);
 			}
 		} else {
-			makePost($specificPost, TRUE);
+			makePost($_GET["post"], TRUE);
 		}
 
 		function makePost($post, $showRest) {
