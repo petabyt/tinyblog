@@ -10,7 +10,15 @@ See it in action: http://petabyte.heb12.com/blog/
 In the `posts` folder, create a file named "1" for the first  
 post, "2" for the second, and so on.  
 
+## theme
+
+First rename the `index.php` file to `index-heme-default.php`.
+
+To change the theme, please rename the file `index-heme-simple.php` to `index.php` .
+
 ## Markdown Syntax
+
+
 TinyBlog has a built-in Markdown parser. It supports most of the typical  
 Markdown syntax, but has some additional features:  
 
