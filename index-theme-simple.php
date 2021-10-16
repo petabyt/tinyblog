@@ -181,6 +181,10 @@
 		.post {
 			white-space: pre-wrap;
 		}
+		img { 
+			max-width: 100%; 
+			max-height: 100%;
+		}
 	</style>
 	<body>
 		<div class="inner">
