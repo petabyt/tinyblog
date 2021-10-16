@@ -27,6 +27,7 @@
 			line-height: 1.8;
 		}
 		H1 {
+			margin-bottom: -10px;
 			font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
 		}
 		H2 {
