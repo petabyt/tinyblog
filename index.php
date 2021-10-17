@@ -42,7 +42,11 @@
 				makePost($post, FALSE);
 			}
 		} else {
-			makePost($_GET["post"], TRUE);
+			if (file_exists("posts/" . strval($_GET["post"]))) {
+				makePost($_GET["post"], TRUE);
+			} else {
+				echo("Bad param");
+			}
 		}
 
 		function makePost($post, $showRest) {
