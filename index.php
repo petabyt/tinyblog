@@ -32,6 +32,14 @@
 		<h3>This is where my stuff goes.</h3>
 	</div>
 	<?php
+		# Make sure number is valid
+		if (isset($_GET["post"])) {
+			if (!is_numeric($_GET["post"])) {
+				echo("Invalid post");
+				die();
+			}
+		}
+	
 		# Automatically count files in /posts
 		$postsDirectory = scandir("posts");
 		$postCount = count($postsDirectory) - 2;
