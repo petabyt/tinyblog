@@ -191,6 +191,13 @@
 			<h1><a href="/">My Blog</a></h1>
 			<h3>This is where my stuff goes.</h3>
 			<?php
+				if (isset($_GET["post"])) {
+					if (!is_numeric($_GET["post"])) {
+						echo("Invalid post");
+						die();
+					}
+				}
+			
 				# Automatically count files in /posts
 				$postsDirectory = scandir("posts");
 				$postCount = count($postsDirectory) - 2;
