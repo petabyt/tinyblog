@@ -84,7 +84,7 @@
 
 			# Different regex for comments as one needs newline.
 			$asHtml = preg_replace("/```([^```]+)```/s", "<code>$1</code>", $asHtml);
-			$asHtml = preg_replace("/\`([^\n]+)\`/i", "<code>$1</code>", $asHtml);
+			$asHtml = preg_replace("/\`([^\n`]+)\`/i", "<code>$1</code>", $asHtml);
 
 			# Replace bold, then italics (don't replace \*)
 			$asHtml = preg_replace("/\*\*([^\n]+)\*\*/i", "<b>$1</b>", $asHtml);
