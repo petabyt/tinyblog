@@ -87,8 +87,8 @@
 			$asHtml = preg_replace("/\`([^\n`]+)\`/i", "<code>$1</code>", $asHtml);
 
 			# Replace bold, then italics (don't replace \*)
-			$asHtml = preg_replace("/\*\*([^\n]+)\*\*/i", "<b>$1</b>", $asHtml);
-			$asHtml = preg_replace("/\*[^\\\\]([^\n]+)[^\\\\]\*/i", "<i>$1</i>", $asHtml);
+			$asHtml = preg_replace("/\*\*([^\n\*]+)\*\*/i", "<b>$1</b>", $asHtml);
+			$asHtml = preg_replace("/\*([^\n\*]+)\*/i", "<i>$1</i>", $asHtml);
 			
 			# Replace \* with *
 			# Optional, may break C/C++ code.
