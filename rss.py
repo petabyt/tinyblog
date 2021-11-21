@@ -1,18 +1,19 @@
-# Basic Python3 RSS generator.
-# python3 rss.py > rss.xml
-
 import os, re
 
-url = "https://petabyt.dev/blog/"
-title = "XXX"
+# Post RSS.py
+# For a basic PHP version with '@' seperated post information,
+# see https://github.com/petabyt/tinyblog/issues/6
 
-print("""
-<?xml version="1.0" encoding="UTF-8"?>
+url = "https://petabyt.dev/blog/"
+title = "Daniel's Blog"
+desc = "This is the place where I put stuff"
+
+print("""<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-      <title>XXX</title>
-        <link>XXX</link>
-        <description>XXX</description>
+      <title>""" + title + """</title>
+        <link>""" + url + """</link>
+        <description>""" + desc + """</description>
         <generator>Tinyblog</generator>
         <language>en</language>
         <lastBuildDate>Mon, 08 Feb 2021 00:00:00 +0000</lastBuildDate>
