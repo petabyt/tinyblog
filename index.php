@@ -66,7 +66,14 @@
 		
 		function parse($string, $showRest, $post) {
 			$asHtml = $string;
+
 			$asHtml = htmlspecialchars($asHtml);
+			
+			$asHtml = str_replace("\\`", "&#96;", $asHtml);
+			$asHtml = str_replace("\\*", "&#42;", $asHtml);
+
+            		# Replace "# " with h1
+			$asHtml = preg_replace("/## (.+)/i", "<h2>$1</h2>", $asHtml);
 
 			# Replace "# " with h1
 			$asHtml = preg_replace("/# (.+)/i", "<h1>$1</h1>", $asHtml);
@@ -76,23 +83,19 @@
 
 			# Parse images first, since they require a ! in front of them
 			$imageRegex = "/\!\[" . $findBetween . "\]\(" . $findBetween . "\)/i";
-			$asHtml = preg_replace($imageRegex, "<img src='$2' alt='$1' title='$1'>", $asHtml);
+			$asHtml = preg_replace($imageRegex, "<a href='$2'><img width='300' src='$2' alt='$1' title='$1'></a>", $asHtml);
 
 			# Parse links, Prevent ! at beginning
 			$linkRegex = "/(?!\!)\[" . $findBetween . "\]\(" . $findBetween . "\)/i";
 			$asHtml = preg_replace($linkRegex, "<a href='$2'>$1</a>", $asHtml);
 
 			# Different regex for comments as one needs newline.
-			$asHtml = preg_replace("/```([^```]+)```/s", "<code>$1</code>", $asHtml);
+			$asHtml = preg_replace("/```([^```]+)```/s", "<code class='long'>$1</code>", $asHtml);
 			$asHtml = preg_replace("/\`([^\n`]+)\`/i", "<code>$1</code>", $asHtml);
 
-			# Replace bold, then italics (don't replace \*)
+			# Replace bold, then italics
 			$asHtml = preg_replace("/\*\*([^\n\*]+)\*\*/i", "<b>$1</b>", $asHtml);
 			$asHtml = preg_replace("/\*([^\n\*]+)\*/i", "<i>$1</i>", $asHtml);
-			
-			# Replace \* with *
-			# Optional, may break C/C++ code.
-			#$asHtml = preg_replace("/(\\\\\*)/i", "*", $asHtml);
 
 			# Replace --- with mothing and add "back" link or add "read more" if chosen.
 			if ($showRest == TRUE) {
