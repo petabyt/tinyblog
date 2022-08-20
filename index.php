@@ -34,7 +34,7 @@
 	<?php
 		# Make sure number is valid
 		if (isset($_GET["post"])) {
-			if (!is_numeric($_GET["post"])) {
+			if (!ctype_digit($_GET["post"])) {
 				echo("Invalid post");
 				die();
 			}
