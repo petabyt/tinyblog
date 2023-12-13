@@ -1,6 +1,7 @@
 # TinyBlog
 Single File HTML/CSS/PHP blog in less than 100 lines.  
-See it in action: http://petabyt.dev/blog/  
+See it in action: http://danielc.dev/blog/  
+Personally, I'm using https://github.com/petabyt/tinyblog2 now  
 
 ## Features
 - Tiny source code. Just pull index.php and customize.  
